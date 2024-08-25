@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST route to create a new order
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
     const { customer_name, customer_email, customer_address, items, total_price, status } = req.body;
     
     const newOrder = new Order({

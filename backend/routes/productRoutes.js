@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
 });
 
 // the POST route to create a new product
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
     const { title, details, price, image } = req.body;
 
     const newProduct = new Product({

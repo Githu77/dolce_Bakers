@@ -26,21 +26,7 @@ const userSchema = new Schema({
     timestamps: true,
 });
 
-// this will hash password before saving the document
-userSchema.pre('save', async function (next) {
-    if (this.isModified('password_hash')) {
-        try {
-            // Generate a salt and hash the password
-            const salt = await bcrypt.genSalt(10);
-            this.password_hash = await bcrypt.hash(this.password_hash, salt);
-            next();
-        } catch (err) {
-            next(err);
-        }
-    } else {
-        next();
-    }
-});
+
 
 // this is to compare passwords
 userSchema.methods.comparePassword = function (candidatePassword) {

@@ -18,15 +18,6 @@ render() {
           <Link to="/products">Products</Link>
         </li>
         <li>
-          <Link to="/order">Order</Link>
-        </li>
-        <li>
-          <Link to="/cart">Cart</Link>
-        </li>
-        <li>
-          <Link to="/history">Order History</Link>
-        </li>
-        <li>
           <Link to="/auth">Auth</Link>
         </li>
       </ul>

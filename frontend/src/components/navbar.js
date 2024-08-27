@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/index.css';
+import Logo from '../images/Logo.png';
+
 
 export default class Navbar extends Component {
 
@@ -8,6 +10,9 @@ render() {
   return (
     <nav className="navbar">
       <ul className="navbar-links">
+        <li>
+          <Link to="/"><img style={{ height: '50px' }} className='logo' src={Logo} alt="logo" /></Link>
+        </li>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -25,9 +30,6 @@ render() {
         </li>
         <li>
           <Link to="/history">Order History</Link>
-        </li>
-        <li>
-          <Link to="/auth">Auth</Link>
         </li>
       </ul>
     </nav>

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useEffect } from 'react';
+
 
 const Auth = ({ setIsLoggedIn }) => {
     const [formData, setFormData] = useState({
@@ -10,6 +13,8 @@ const Auth = ({ setIsLoggedIn }) => {
 
     const [isLogin, setIsLogin] = useState(true);
     const [message, setMessage] = useState('');
+
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,22 +36,28 @@ const Auth = ({ setIsLoggedIn }) => {
                     password: formData.password,
                 });
             }
+            
+            console.log(response.data); // Log the response data to check what is returned
+            
             setMessage(response.data.message);
-            if (response.data.success) { // Assuming the API returns a success flag
+            if (response.data.success) { // Check if this condition is correct
                 setIsLoggedIn(true);
+                console.log('Navigating to home page'); // Debug log
+                navigate('/home'); // Redirect to home page
             }
         } catch (error) {
             setMessage(error.response?.data?.message || 'An error occurred');
         }
     };
-
+    
     const toggleForm = () => {
         setIsLogin(!isLogin);
         setMessage('');
     };
+   
 
     return (
-        <div>
+        <div className='auth-overlay'>
             <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
             <form onSubmit={handleSubmit}>
                 {!isLogin && (

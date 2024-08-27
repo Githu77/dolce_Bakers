@@ -65,19 +65,21 @@ router.post('/login', async (req, res) => {
         // Find the user by email
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: 'User not found' });
+            return res.status(400).json({ success: false, message: 'User not found' });
         }
 
         // Compare the provided password with the stored hash
         const isMatch = await user.comparePassword(password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(400).json({ success: false, message: 'Invalid credentials' });
         }
 
-        res.redirect('./home');
+        // Respond with success if authentication is successful
+        res.json({ success: true, message: 'Login successful!' });
     } catch (err) {
-        res.status(400).json({ message: 'Error: ' + err });
+        res.status(400).json({ success: false, message: 'Error: ' + err });
     }
 });
+
 
 export default router;

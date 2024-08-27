@@ -74,7 +74,7 @@ ul li a {
 }
 
 .logo img {
-    height: 50px; /* Adjust the size as needed */
+    height: 500px; /* Adjust the size as needed */
 }
 
 @media (max-width: 768px)

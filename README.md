@@ -45,7 +45,8 @@ Navigate to the project directories and install dependencies:
     JWT_SECRET=your_jwt_secret
     Start the frontend and backend servers:
 
-5. ```bash
+5. 
+```bash
 # Start frontend
     cd frontend
     npm start

@@ -3,7 +3,6 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-// Load environment variables from config.env file
 dotenv.config ({ path: 'config.env' });
 
 const app = express();
@@ -12,7 +11,6 @@ const port = process.env.PORT || 8001;
 app.use(cors());
 app.use(express.json());
 
-// Debugging: Print environment variables
 console.log('Port:', process.env.PORT);
 console.log('Mongo URI:', process.env.MONGO_URI);
 
@@ -24,11 +22,13 @@ mongoose.connect(process.env.MONGO_URI)
   import orderRoutes from './backend/routes/orderRoutes.js';
   import productRoutes from './backend/routes/productRoutes.js';
   import userRoutes from './backend/routes/userRoutes.js';
+  import adminRoutes from './backend/routes/adminRoutes.js';
+
   
   app.use('/orders', orderRoutes);
   app.use('/products', productRoutes);
   app.use('/users', userRoutes);
-  
+  app.use('/admin', adminRoutes);
 
 
 app.get('/', (req, res) => {

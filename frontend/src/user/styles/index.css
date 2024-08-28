@@ -1,0 +1,29 @@
+.navbar
+{
+    
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+ul li {
+    margin: 15px;
+}
+ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.logo
+{
+    margin: 0;
+}
+
+.logo img {
+    height: 500px; /* Adjust the size as needed */
+}

@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 const router = Router();
 
-// Get all users (for admin purposes, typically not public)
+// can get all users data
 router.get('/', async (req, res) => {
     try {
         const users = await User.find();
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Signup (Create a new user)
+// Signup
 router.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -57,7 +57,7 @@ router.post('/signup', async (req, res) => {
 
 
 
-// Login (Authenticate user)
+// Login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
